@@ -13,8 +13,7 @@
 -- Button numbers are 1-based (same numbers as Windows "Game Controllers" / MOZA Cockpit).
 -- Pitch is inverted (invert = true) and yaw is on the AB6 Rz axis ("Z Rotation") on the author's setup.
 -- Start/Menu is the mod's "Pause" action (AB6 Button49 here).
--- Camera view cycle (third-person / HUD / cockpit, Xbox R3) is the mod's "RightThumbstick" action (Button51).
--- "View" (Button16) is kept as well; its exact function on flight-stick profiles is not documented.
+-- Camera view cycle (third-person / HUD / cockpit) is the mod's "View" action (Button16).
 -- Camera look (Xbox right stick) is CameraYaw/CameraPitch on the grip thumbstick (AB6 Rx/Ry). CameraPitch uses
 -- invert = true so view up/down follows the flight stick (push forward = look down); set false for non-inverted view.
 -- Throttle is bound to the AB6 base slider (Slider2, labelled "Slider" in the detected list) for players
@@ -57,7 +56,7 @@ return {
         Target = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button7" },  -- MOZA AB6
         Radar = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button4" },  -- MOZA AB6
         Flare = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button11" },  -- MOZA AB6
-        View = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button16" },  -- MOZA AB6
+        View = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button16" },  -- MOZA AB6 camera view cycle (third-person / HUD / cockpit)
         Gear = nil,
         
         HatUp = nil,
@@ -98,7 +97,7 @@ return {
         LeftTrigger = nil,
         RightTrigger = nil,
         LeftThumbstick = nil,
-        RightThumbstick = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button51" },  -- MOZA AB6 camera view cycle (Xbox R3: third-person / HUD / cockpit)
+        RightThumbstick = nil,
         SpecialRight = nil,
         SpecialLeft = nil,
         TouchPad = nil,
