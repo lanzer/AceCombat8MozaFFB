@@ -1,5 +1,7 @@
 # AceCombat8MozaFFB (AceFFB): force feedback for ACE COMBAT 8 on MOZA AB6 / AB9 flight bases
 
+**Version 0.2.0**. Download it from [Releases](https://github.com/lanzer/AceCombat8MozaFFB/releases).
+
 AceFFB gives ACE COMBAT 8: Wings of Theve (PC/Steam) real force feedback on a **MOZA AB6 or AB9** FFB flight base.
 It was tested on the AB6. The AB9 should work the same way because it uses the same MOZA Cockpit telemetry and
 DirectInput force-feedback path, and AceBridge picks any force-feedback device whose name contains `MOZA`. AC8 has no FFB output of its own. AceFFB reads the
