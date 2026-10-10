@@ -20,7 +20,8 @@
 -- 0.5 (slider centre) is neutral; it may act as "faster/slower around centre" rather than an absolute
 -- throttle position. This has not been verified in game.
 -- Weapon/Target are single "cycle" actions (no prev/next in the mod).
--- Air brake uses LeftTrigger (the Xbox-pad decelerate action); it is marked untested by AC8HOTAS.
+-- Air brake / speed control button = AccelDecel (Button3); level flight (auto-level, LT+RT on a pad) = AutoPilot
+-- (Button49). Both are listed as untested by AC8HOTAS; if F5 rejects one, the newest HOTAS-*.log names it.
 
 -- AC8HOTAS: edit your bindings, save this file, then press F5 in the game.
 
@@ -86,11 +87,11 @@ return {
         Yaw = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Rz", invert = false },  -- MOZA AB6 Rz (Z Rotation); flip invert if left/right reversed
 
         -- Optional & Untested Controls
-        AutoPilot = nil,
-        AccelDecel = nil, -- Button command; use Throttle for a continuous axis.
+        AutoPilot = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button49" },  -- MOZA AB6 level flight (auto-level)
+        AccelDecel = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button3" },  -- MOZA AB6 accelerate/decelerate (air brake)
         LeftShoulder = nil,
         RightShoulder = nil,
-        LeftTrigger = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button3" },  -- MOZA AB6 air brake (Xbox LT = decelerate); comment out if F5 reports a missing slot
+        LeftTrigger = nil,
         RightTrigger = nil,
         LeftThumbstick = nil,
         RightThumbstick = nil,
