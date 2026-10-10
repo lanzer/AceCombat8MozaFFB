@@ -68,6 +68,52 @@ player aircraft's state from inside the game and turns it into:
    *Expert* flight controls in game, then press **F5**. Turn off any Xbox-controller emulator so the
    game doesn't read the stick twice.
 
+## MOZA throttle and rudder pedals (untested)
+
+This setup hasn't been tested yet. If you try a MOZA throttle (or any separate throttle) and/or
+rudder pedals with AC8HOTAS, please report what worked on the
+[GitHub issues page](https://github.com/lanzer/AceCombat8MozaFFB/issues).
+
+AceBridge's force feedback isn't affected; only the game's input bindings change. Everything is
+configured in `Mods\AC8HOTAS\bindings.lua`:
+
+1. Plug the devices in and start AC8 once with AC8HOTAS enabled (or press **F5** in game). The bottom of
+   `bindings.lua`, between `BEGIN DETECTED DEVICES` and `END DETECTED DEVICES`, then lists every controller
+   with its `device = "{GUID}"` and the axes it exposes (`X`, `Y`, `Z`, `Rx`, `Ry`, `Rz`, `Slider1`,
+   `Slider2`).
+2. To find which axis is the throttle lever or the rudder, move it in **MOZA Cockpit** or in Windows
+   **Game Controllers** (`Win+R`, `joy.cpl`, then Properties) and see which axis moves. Some MOZA peripherals
+   may show up inside the AB6/AB9 base device rather than as a separate controller. In that case use the
+   base's GUID with the axis that moves.
+3. Point `Throttle` and `Yaw` at those devices and axes (the GUIDs below are placeholders):
+
+   ```lua
+   Throttle = { device = "{THROTTLE-GUID-FROM-DETECTED-LIST}", input = "Z", invert = false, mode = "zero_to_one" },
+   Yaw      = { device = "{PEDALS-GUID-FROM-DETECTED-LIST}",   input = "Rz", invert = false },
+   ```
+
+4. **Remove (or set to `nil`) the example's AB6 lines** for `Throttle` (`Slider2`) and `Yaw` (`Rz`). Each
+   action can only be listed once in `bindings.lua`, and you don't want the stick's slider and twist also
+   driving throttle and yaw.
+5. Save, press **F5** in game, and read the newest `Mods\AC8HOTAS\HOTAS-*.log`. "Config accepted" means it
+   applied. If an axis runs the wrong way, flip `invert` and press F5 again.
+
+What the AC8HOTAS README says about multiple devices, and what to watch for:
+
+- **One config can span several devices.** AC8HOTAS says "Multiple devices can be mapped directly; a
+  combined virtual joystick is not required", and its example config assigns buttons and axes across
+  multiple HOTAS devices. Each action, though, binds to exactly one device and input.
+- **Devices with the same product ID can't be mapped separately** ("Controllers sharing the same product ID
+  cannot currently be mapped separately").
+- **A newly assigned device may need a USB reconnect.** The game caches device associations, so if a new
+  device does nothing after F5, unplug and replug it, then press F5 again.
+- **Profile slots:** the mod puts each device into one of the game's built-in flight-stick profiles. If no
+  free profile has slots for all the actions you gave a device, F5 is rejected and the log names the
+  missing actions or says no unoccupied profile fits. Its INSTALL notes say restarting the game with the
+  completed config can let a different profile be picked, but that isn't guaranteed.
+- **A throttle the game already supports natively** (e.g. T.Flight HOTAS 4) needs no AC8HOTAS binding.
+  Leave `Throttle` unbound for it.
+
 ## Run order
 
 1. **MOZA Cockpit**: select **DCS** and press **Start game**.
