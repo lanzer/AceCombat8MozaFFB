@@ -53,9 +53,9 @@ return {
         -- Replace nil with a button or hat binding from the examples above.
         Gun = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button1" },  -- MOZA AB6
         Missile = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button2" },  -- MOZA AB6
-        -- Weapon/Target are single cycle actions in AC8HOTAS (no prev/next): using Button10 and Button7.
+        -- Weapon/Target are single cycle actions in AC8HOTAS (no prev/next): using Button10 and Button8.
         Weapon = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button10" },  -- MOZA AB6
-        Target = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button7" },  -- MOZA AB6
+        Target = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button8" },  -- MOZA AB6
         Radar = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button4" },  -- MOZA AB6
         Flare = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button11" },  -- MOZA AB6
         View = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button16" },  -- MOZA AB6 camera view cycle (third-person / HUD / cockpit)
