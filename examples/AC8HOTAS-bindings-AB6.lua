@@ -13,6 +13,8 @@
 -- Button numbers are 1-based (same numbers as Windows "Game Controllers" / MOZA Cockpit).
 -- Pitch is inverted (invert = true) and yaw is on the AB6 Rz axis ("Z Rotation") on the author's setup.
 -- Start/Menu is the mod's "Pause" action (AB6 Button49 here).
+-- Buttons 12-15 are bound twice on purpose: Hat* = in-flight hat (squadron commands), DPad* = menu/dialog
+-- navigation. The mod allows the same button on several actions (like the HOTAS 4 hat in AC7, which drove both).
 -- Camera view cycle (third-person / HUD / cockpit) is the mod's "View" action (Button16).
 -- Camera look (Xbox right stick) is CameraYaw/CameraPitch on the grip thumbstick (AB6 Rx/Ry). CameraPitch uses
 -- invert = true so view up/down follows the flight stick (push forward = look down); set false for non-inverted view.
@@ -59,10 +61,10 @@ return {
         View = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button16" },  -- MOZA AB6 camera view cycle (third-person / HUD / cockpit)
         Gear = nil,
         
-        HatUp = nil,
-        HatRight = nil,
-        HatDown = nil,
-        HatLeft = nil,
+        HatUp = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button12" },  -- MOZA AB6 in-flight hat (squadron commands)
+        HatRight = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button13" },  -- MOZA AB6 in-flight hat (squadron commands)
+        HatDown = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button14" },  -- MOZA AB6 in-flight hat (squadron commands)
+        HatLeft = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button15" },  -- MOZA AB6 in-flight hat (squadron commands)
         
         DPadUp = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button12" },  -- MOZA AB6
         DPadRight = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button13" },  -- MOZA AB6

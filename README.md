@@ -57,7 +57,8 @@ player aircraft's state from inside the game and turns it into:
    The output goes to `release\AceFFB-<version>\` along with a zip for a GitHub Release.
 5. **Optional: AB6/AB9 bindings (AC8HOTAS).** The example was made on an AB6; AB9 button numbers may differ.
    It includes Start/Menu (the mod's `Pause` action, Button49), air brake / speed control (`AccelDecel`,
-   Button3), level flight / auto-level (`AutoPilot`, Button52), camera view cycle third-person / HUD / cockpit
+   Button3), level flight / auto-level (`AutoPilot`, Button52), squadron commands on the in-flight hat
+   (`HatUp/Right/Down/Left`, Buttons 12-15, with the same buttons also bound to `DPad*` for menus and dialogs), camera view cycle third-person / HUD / cockpit
    (`View`, Button16), camera look on the grip thumbstick
    (`CameraYaw` = Rx, `CameraPitch` = Ry with `invert = true`, which makes view up/down follow the
    flight stick, push forward = look down; set it to `false` for a non-inverted view) and, for setups without a separate throttle,
