@@ -13,7 +13,8 @@
 -- Button numbers are 1-based (same numbers as Windows "Game Controllers" / MOZA Cockpit).
 -- Pitch is inverted (invert = true) and yaw is on the AB6 Rz axis ("Z Rotation") on the author's setup.
 -- Start/Menu is the mod's "Pause" action (AB6 Button49 here).
--- Camera look (Xbox right stick) is CameraYaw/CameraPitch on the grip thumbstick (AB6 Rx/Ry); flip invert if reversed.
+-- Camera look (Xbox right stick) is CameraYaw/CameraPitch on the grip thumbstick (AB6 Rx/Ry). CameraPitch uses
+-- invert = true so view up/down follows the flight stick (push forward = look down); set false for non-inverted view.
 -- Throttle is bound to the AB6 base slider (Slider2, labelled "Slider" in the detected list) for players
 -- without a separate throttle. COMMENT IT OUT if you use a throttle the game supports natively
 -- (e.g. a T.Flight HOTAS 4), otherwise both may feed throttle at the same time.
@@ -83,7 +84,7 @@ return {
         Roll = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "X", invert = false },  -- MOZA AB6 stick X
         -- AB6-only setups: base slider as throttle. Comment out if your throttle is natively supported (e.g. HOTAS 4).
         Throttle = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Slider2", invert = false, mode = "zero_to_one" },  -- MOZA AB6 base slider
-        CameraPitch = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Ry", invert = false, mode = "minus_one_to_one" },  -- MOZA AB6 thumbstick Y (camera look)
+        CameraPitch = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Ry", invert = true, mode = "minus_one_to_one" },  -- MOZA AB6 thumbstick Y (camera look). invert = true makes view up/down follow the flight stick (push forward = look down); set false for non-inverted view
         CameraYaw = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Rx", invert = false, mode = "minus_one_to_one" },  -- MOZA AB6 thumbstick X (camera look)
         Yaw = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Rz", invert = false },  -- MOZA AB6 Rz (Z Rotation); flip invert if left/right reversed
 

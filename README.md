@@ -56,7 +56,8 @@ player aircraft's state from inside the game and turns it into:
 5. **Optional: AB6/AB9 bindings (AC8HOTAS).** The example was made on an AB6; AB9 button numbers may differ.
    It includes Start/Menu (the mod's `Pause` action, Button49), air brake / speed control (`AccelDecel`,
    Button3), level flight / auto-level (`AutoPilot`, Button52), camera look on the grip thumbstick
-   (`CameraYaw` = Rx, `CameraPitch` = Ry; flip `invert` if reversed) and, for setups without a separate throttle,
+   (`CameraYaw` = Rx, `CameraPitch` = Ry with `invert = true`, which makes view up/down follow the
+   flight stick, push forward = look down; set it to `false` for a non-inverted view) and, for setups without a separate throttle,
    `Throttle` on the AB6 base slider (`Slider2`). **Comment out the Throttle line if the game already
    supports your throttle natively** (e.g. T.Flight HOTAS 4). See
    [examples/AC8HOTAS-bindings-AB6.lua](examples/AC8HOTAS-bindings-AB6.lua). **Replace the device
