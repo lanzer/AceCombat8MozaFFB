@@ -12,7 +12,8 @@
 --
 -- Button numbers are 1-based (same numbers as Windows "Game Controllers" / MOZA Cockpit).
 -- Pitch is inverted (invert = true) and yaw is on the AB6 Rz axis ("Z Rotation") on the author's setup.
--- Start/Menu is the mod's "Pause" action (AB6 Button52 here).
+-- Start/Menu is the mod's "Pause" action (AB6 Button49 here).
+-- Camera look (Xbox right stick) is CameraYaw/CameraPitch on the grip thumbstick (AB6 Rx/Ry); flip invert if reversed.
 -- Throttle is bound to the AB6 base slider (Slider2, labelled "Slider" in the detected list) for players
 -- without a separate throttle. COMMENT IT OUT if you use a throttle the game supports natively
 -- (e.g. a T.Flight HOTAS 4), otherwise both may feed throttle at the same time.
@@ -21,7 +22,7 @@
 -- throttle position. This has not been verified in game.
 -- Weapon/Target are single "cycle" actions (no prev/next in the mod).
 -- Air brake / speed control button = AccelDecel (Button3); level flight (auto-level, LT+RT on a pad) = AutoPilot
--- (Button49). Both are listed as untested by AC8HOTAS; if F5 rejects one, the newest HOTAS-*.log names it.
+-- (Button52). Both are listed as untested by AC8HOTAS; if F5 rejects one, the newest HOTAS-*.log names it.
 
 -- AC8HOTAS: edit your bindings, save this file, then press F5 in the game.
 
@@ -72,7 +73,7 @@ return {
         FaceButtonBottom = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button19" },  -- MOZA AB6
         FaceButtonLeft = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button20" },  -- MOZA AB6
 
-        Pause = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button52" },  -- MOZA AB6 Start/Menu
+        Pause = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button49" },  -- MOZA AB6 Start/Menu
         Platform = nil,
 
         -- Axis Controls
@@ -82,12 +83,12 @@ return {
         Roll = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "X", invert = false },  -- MOZA AB6 stick X
         -- AB6-only setups: base slider as throttle. Comment out if your throttle is natively supported (e.g. HOTAS 4).
         Throttle = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Slider2", invert = false, mode = "zero_to_one" },  -- MOZA AB6 base slider
-        CameraPitch = nil,
-        CameraYaw = nil,
+        CameraPitch = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Ry", invert = false, mode = "minus_one_to_one" },  -- MOZA AB6 thumbstick Y (camera look)
+        CameraYaw = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Rx", invert = false, mode = "minus_one_to_one" },  -- MOZA AB6 thumbstick X (camera look)
         Yaw = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Rz", invert = false },  -- MOZA AB6 Rz (Z Rotation); flip invert if left/right reversed
 
         -- Optional & Untested Controls
-        AutoPilot = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button49" },  -- MOZA AB6 level flight (auto-level)
+        AutoPilot = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button52" },  -- MOZA AB6 level flight (auto-level)
         AccelDecel = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button3" },  -- MOZA AB6 accelerate/decelerate (air brake)
         LeftShoulder = nil,
         RightShoulder = nil,
