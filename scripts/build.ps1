@@ -1,7 +1,7 @@
 # Builds AceBridge and assembles a ready-to-zip release folder in .\release (gitignored).
 #   powershell -ExecutionPolicy Bypass -File scripts\build.ps1                 # framework-dependent (needs .NET 8 Desktop Runtime)
 #   powershell -ExecutionPolicy Bypass -File scripts\build.ps1 -SelfContained  # bundles the .NET runtime (bigger, no install needed)
-param([switch]$SelfContained, [string]$Version = "0.2.0")
+param([switch]$SelfContained, [string]$Version = "0.2.1")
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $name = "AceFFB-$Version"
