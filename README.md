@@ -53,7 +53,10 @@ player aircraft's state from inside the game and turns it into:
    powershell -ExecutionPolicy Bypass -File scripts\build.ps1 -SelfContained
    ```
    The output goes to `release\AceFFB-<version>\` along with a zip for a GitHub Release.
-5. **Optional: AB6/AB9 bindings (AC8HOTAS).** The example was made on an AB6; AB9 button numbers may differ. See
+5. **Optional: AB6/AB9 bindings (AC8HOTAS).** The example was made on an AB6; AB9 button numbers may differ.
+   It includes Start/Menu (the mod's `Pause` action, Button52) and, for setups without a separate throttle,
+   `Throttle` on the AB6 base slider (`Slider2`). **Comment out the Throttle line if the game already
+   supports your throttle natively** (e.g. T.Flight HOTAS 4). See
    [examples/AC8HOTAS-bindings-AB6.lua](examples/AC8HOTAS-bindings-AB6.lua). **Replace the device
    GUID with your own** (the file explains how), copy it to `Mods\AC8HOTAS\bindings.lua`, select
    *Expert* flight controls in game, then press **F5**. Turn off any Xbox-controller emulator so the
