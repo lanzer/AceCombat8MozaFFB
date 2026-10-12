@@ -140,7 +140,7 @@ Command-line options for AceBridge, passed through `Start-AceBridge.cmd` (for ex
 | `--vib <scale>` | `1.0` | Overall strength of all rumble effects (0–1+) |
 | `--stall-kmh <kmh>` | `200` | Stall shake starts below this speed and grows stronger as you slow down. It only applies once airborne (after exceeding this speed + 120 km/h). |
 | `--map <file>` | see below | Path to `aircraft-map.json` |
-| `--aircraft <profile>` | `FA-18C_hornet` | Cockpit profile used before a plane is identified |
+| `--aircraft <profile>` | `FA-18C-AC8` | Cockpit profile used before a plane is identified (AC8-only Hornet copy from `cockpit-presets/`) |
 | `--port <n>` | `3476` | TCP port MOZA Cockpit connects to (must match MOZA.lua) |
 | `--no-cockpit` | off | Rumble only, without MOZA Cockpit. No G/speed stick loading. |
 
@@ -160,7 +160,7 @@ mapped aircraft profile), not in AceBridge.
 ## Aircraft map
 
 `config/aircraft-map.json` (copied next to `AceBridge.exe` in the release) maps AC8 plane codes to
-MOZA Cockpit DCS aircraft profiles. The plane code comes from the player pawn class
+MOZA Cockpit aircraft profiles (the AC8-only names from `cockpit-presets/`, see below). The plane code comes from the player pawn class
 `BP_PlayerPlane_PPxxxx_<code>_C`, lower-cased, with leading zeros in numbers removed. The **first
 matching prefix wins**, so put more specific entries (for example `f15e`) before shorter ones
 (`f15`). Unknown planes use `default`, and AceBridge logs
@@ -168,6 +168,39 @@ matching prefix wins**, so put more specific entries (for example `f15e`) before
 
 AceBridge looks for the file in this order: `--map`, then next to the exe, then `..\config\`, then
 the repo `config\` folder (when run from `bin\`), then `.\config\`.
+
+## AC8 Cockpit presets (AB6)
+
+`cockpit-presets/` holds a punchy, arcade-tuned MOZA Cockpit preset for every AC8 plane (AB6, DCS
+mode). Each one uses an **AC8-only aircraft name** (for example `F-22A`, `Su-57`, `F-15C-AC8`,
+`FA-18C-AC8`), and `config/aircraft-map.json` only ever sends those names. Every preset has a
+centering spring of at least 8, so the stick still re-centers in tunnel runs.
+
+**Your real DCS profiles stay as they are.** The installer only adds new names to Cockpit's
+auto-match table and never overwrites an existing key, so DCS aircraft such as `FA-18C_hornet` or
+`F-16C_50` keep their official MOZA presets.
+
+Install (PowerShell, from the repo or release folder):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\Install-CockpitPresets.ps1
+```
+
+The script:
+1. Backs up `Documents\MOZA Cockpit\PresetLibrary` to `PresetLibrary-backup-<date>`.
+2. Closes MOZA Cockpit.
+3. Copies the presets into the library and adds them to `PresetIndex.index` and `OptimalMatch.vconfig`
+   (under AB6 > dcs_world). Existing entries are merged, never replaced.
+4. Restarts Cockpit.
+
+To remove them, run `scripts\Uninstall-CockpitPresets.ps1`. It deletes only the presets named
+`AC8 ...` along with their index and auto-match entries, and it makes another backup first. You can
+also restore any `PresetLibrary-backup-<date>` folder by hand. Tuning was tested on the AB6. The AB9
+uses different presets (RS21), so these may not apply to it.
+
+## Tip: twisting the stick for yaw
+
+If you use the AB6's twist axis for yaw, the force-feedback return spring makes twisting hard work. Wrap badminton grip tape around the middle of the stick, where your thumb, middle finger and ring finger rest. The extra grip lets you twist with much less force and cuts down on fatigue.
 
 ## Troubleshooting
 

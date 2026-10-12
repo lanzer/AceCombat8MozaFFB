@@ -9,7 +9,7 @@ static class Program {
   static readonly object Gate = new();
   static Sample Latest = new();
   static long Frames;
-  static string Aircraft = "FA-18C_hornet";
+  static string Aircraft = "FA-18C-AC8";
   static int Port = 3476;
   static readonly CultureInfo Inv = CultureInfo.InvariantCulture;
 
@@ -22,7 +22,7 @@ static class Program {
     DisableQuickEdit();
     foreach (var a in args) {
       if (a == "--no-cockpit") NoCockpit = true;
-      if (a == "--help" || a == "-h" || a == "/?") { Console.WriteLine("AceBridge [--port 3476] [--aircraft FA-18C_hornet] [--vib 1.0] [--stall-kmh 200] [--map path\\aircraft-map.json] [--no-cockpit]"); return; }
+      if (a == "--help" || a == "-h" || a == "/?") { Console.WriteLine("AceBridge [--port 3476] [--aircraft FA-18C-AC8] [--vib 1.0] [--stall-kmh 200] [--map path\\aircraft-map.json] [--no-cockpit]"); return; }
     }
     for (int i = 0; i < args.Length - 1; i++) { if (args[i] == "--port") Port = int.Parse(args[i + 1]); if (args[i] == "--aircraft") Aircraft = args[i + 1]; if (args[i] == "--vib") VibScale = double.Parse(args[i + 1], Inv); if (args[i] == "--stall-kmh") StallKmh = double.Parse(args[i + 1], Inv); if (args[i] == "--map") MapPath = args[i + 1]; }
     Console.WriteLine($"AceBridge: pipe \\\\.\\pipe\\AceTelemetry -> Cockpit DCS port {Port}, aircraft profile {Aircraft}");
@@ -33,7 +33,7 @@ static class Program {
     else TcpLoop();
   }
 
-  static string MapDefault = "FA-18C_hornet"; static List<(string pre, string prof)> Map = new();
+  static string MapDefault = "FA-18C-AC8"; static List<(string pre, string prof)> Map = new();
   static string LastPlane = null, LastProfile = null;
   static void LoadMap() {
     try {

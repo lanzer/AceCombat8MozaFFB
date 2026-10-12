@@ -1,43 +1,174 @@
-﻿{
+{
   "_comment": "AC8 plane code (from BP_PlayerPlane_PPxxxx_<code>_C, leading zeros in numbers removed) -> MOZA Cockpit DCS aircraft profile. First matching prefix wins. Edit freely; AceBridge reloads this on start.",
-  "default": "FA-18C_hornet",
+  "default": "FA-18C-AC8",
   "map": [
-    ["f18", "FA-18C_hornet"],
-    ["f16", "F-16C_50"],
-    ["f14", "F-14B"],
-    ["f15e", "F-15ESE"],
-    ["f15", "F-15C"],
-    ["f4", "F-4E-45MC"],
-    ["f5", "F-5E-3"],
-    ["f86", "F-86F Sabre"],
-    ["a10", "A-10C_2"],
-    ["a4", "A-4E-C"],
-    ["a6", "A-10C_2"],
-    ["av8", "AV-8B"],
-    ["mig29", "MiG-29A"],
-    ["mig21", "MiG-21Bis"],
-    ["mig19", "MiG-19P"],
-    ["mig15", "MiG-15bis"],
-    ["su25", "Su-25"],
-    ["su33", "Su-33"],
-    ["su", "Su-27"],
-    ["j11", "J-11A"],
-    ["jf17", "JF-17"],
-    ["m2000", "M-2000C"],
-    ["mr2k", "M-2000C"],
-    ["mf1", "Mirage-F1CE"],
-    ["ajs37", "AJS37"],
-    ["j37", "AJS37"],
-    ["f22", "F-15C"],
-    ["f35", "FA-18C_hornet"],
-    ["f117", "A-10C_2"],
-    ["ef2000", "F-16C_50"],
-    ["eurofighter", "F-16C_50"],
-    ["typhoon", "F-16C_50"],
-    ["rafale", "M-2000C"],
-    ["gripen", "JF-17"],
-    ["jas39", "JF-17"],
-    ["l39", "L-39ZA"],
-    ["t50", "F-16C_50"]
+    [
+      "ea18g",
+      "EA-18G"
+    ],
+    [
+      "ea6b",
+      "EA-6B"
+    ],
+    [
+      "ea36",
+      "EA-36"
+    ],
+    [
+      "fa36",
+      "FA-36"
+    ],
+    [
+      "x40",
+      "X-40"
+    ],
+    [
+      "fa18f",
+      "FA-18F"
+    ],
+    [
+      "f18f",
+      "FA-18F"
+    ],
+    [
+      "fa18",
+      "FA-18C-AC8"
+    ],
+    [
+      "f18",
+      "FA-18C-AC8"
+    ],
+    [
+      "f16",
+      "F-16C-AC8"
+    ],
+    [
+      "f14",
+      "F-14B-AC8"
+    ],
+    [
+      "f15j",
+      "F-15J"
+    ],
+    [
+      "f15e",
+      "F-15E-AC8"
+    ],
+    [
+      "f15",
+      "F-15C-AC8"
+    ],
+    [
+      "f22",
+      "F-22A"
+    ],
+    [
+      "f35",
+      "F-35A"
+    ],
+    [
+      "f2a",
+      "F-2A"
+    ],
+    [
+      "f2",
+      "F-2A"
+    ],
+    [
+      "f4",
+      "F-4E-AC8"
+    ],
+    [
+      "f117",
+      "A-10C-AC8"
+    ],
+    [
+      "a10",
+      "A-10C-AC8"
+    ],
+    [
+      "a6",
+      "A-6E"
+    ],
+    [
+      "mig31",
+      "MiG-31B"
+    ],
+    [
+      "mig29",
+      "MiG-29A-AC8"
+    ],
+    [
+      "mig21",
+      "MiG-21-AC8"
+    ],
+    [
+      "su57",
+      "Su-57"
+    ],
+    [
+      "su47",
+      "Su-47"
+    ],
+    [
+      "su35",
+      "Su-35S"
+    ],
+    [
+      "su34",
+      "Su-34"
+    ],
+    [
+      "su33",
+      "Su-33-AC8"
+    ],
+    [
+      "su25",
+      "Su-25SM"
+    ],
+    [
+      "su",
+      "Su-35S"
+    ],
+    [
+      "m2000",
+      "M-2000C-AC8"
+    ],
+    [
+      "mr2k",
+      "M-2000C-AC8"
+    ],
+    [
+      "ef2000",
+      "Typhoon"
+    ],
+    [
+      "eurofighter",
+      "Typhoon"
+    ],
+    [
+      "typhoon",
+      "Typhoon"
+    ],
+    [
+      "ef",
+      "Typhoon"
+    ],
+    [
+      "rafale",
+      "Rafale-M"
+    ],
+    [
+      "gripen",
+      "Gripen-E"
+    ],
+    [
+      "jas39",
+      "Gripen-E"
+    ],
+    [
+      "t50",
+      "F-16C-AC8"
+    ]
   ]
 }
