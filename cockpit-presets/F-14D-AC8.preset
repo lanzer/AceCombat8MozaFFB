@@ -1,5 +1,5 @@
 {
-    "date": "1791809000",
+    "date": "1791976000",
     "device_params": {
         "AxisMode_left": 0,
         "AxisMode_right": 0,
@@ -49,17 +49,17 @@
         "axis_range_z_curve_y4": 80,
         "axis_range_z_curve_y5": 100,
         "axis_range_z_reversal": 0,
-        "bacic_damper": 60,
+        "bacic_damper": 45,
         "bacic_force_model": 2,
-        "bacic_friction": 44,
-        "bacic_gameForceFeedback": 0,
+        "bacic_friction": 69,
+        "bacic_gameForceFeedback": 100,
         "bacic_hardware_blance_auto": 0,
-        "bacic_inertia": 45,
+        "bacic_inertia": 34,
         "bacic_max_torque": 100,
         "bacic_overall_strength": 100,
-        "bacic_spring": 60,
-        "bacic_start_force_coefficient": 38,
-        "bacic_start_force_enble": 1,
+        "bacic_spring": 48,
+        "bacic_start_force_coefficient": 35,
+        "bacic_start_force_enble": 0,
         "bacic_start_force_transition_zone": 10,
         "bacic_temperature_mode": 2,
         "background_led_brightness": 1,
@@ -153,7 +153,7 @@
     "games": [
         "dcs_world"
     ],
-    "name": "AC8 F-14B-AC8",
+    "name": "AC8 F-14D-AC8",
     "product_type": "AS23",
     "telemetry_params": {
         "C_D0": 0.01,
@@ -342,6 +342,6 @@
         "wind_effect_switch": true
     },
     "uuid": "{d4b01609-4efc-42cb-831e-ae1a39fc84f6}",
-    "vehicles": "F-14B-AC8",
+    "vehicles": "F-14D-AC8",
     "version": "1.0.1"
 }

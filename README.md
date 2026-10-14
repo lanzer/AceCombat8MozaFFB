@@ -171,10 +171,54 @@ the repo `config\` folder (when run from `bin\`), then `.\config\`.
 
 ## AC8 Cockpit presets (AB6)
 
-`cockpit-presets/` holds a punchy, arcade-tuned MOZA Cockpit preset for every AC8 plane (AB6, DCS
+`cockpit-presets/` holds an arcade-tuned MOZA Cockpit preset for every AC8 plane (AB6, DCS
 mode). Each one uses an **AC8-only aircraft name** (for example `F-22A`, `Su-57`, `F-15C-AC8`,
 `FA-18C-AC8`), and `config/aircraft-map.json` only ever sends those names. Every preset has a
 centering spring of at least 8, so the stick still re-centers in tunnel runs.
+
+**Required:** in MOZA Cockpit's settings, turn on **auto switch presets**. Otherwise Cockpit
+receives the AC8 aircraft name but stays on whatever preset was loaded last, so the per-plane
+presets never switch in.
+
+Each preset's **game FFB gain** (`bacic_gameForceFeedback`) sets how strong AceBridge's own rumble is
+(gun, hits, clouds, icing, sonic boom, stall). It must be above 0, or the rumble is muted. The presets
+use 100 for fighters, 70–80 for heavy jets, fifth-gen and experimental planes, and 40 for attack jets.
+
+### How the presets are tuned
+
+The goal is that every plane feels different when you switch, while every stick still re-centers.
+Every preset uses full stick travel and keeps G loading on, so the stick still gets heavier when
+you pull hard.
+
+- **Older jets follow their DCS presets.** Where MOZA ships a DCS preset for the plane, its damper,
+  friction, inertia and breakout are kept. Most DCS jet presets are "force feedback" presets with
+  spring 0, because DCS supplies the centering itself; AC8 doesn't, so the spring is set to half of
+  that preset's game FFB gain (minimum 8). That puts the Tomcat and Phantom around 50, the MiG-21
+  and MiG-29 at 43, the Strike Eagle at 35 and the A-10 at 20. The Hornet keeps its official 50/60.
+- **Planes without a DCS preset** start from their closest relative and get small differences, for
+  example the F/A-18F and EA-18G a little heavier than the Hornet, and the F-15C and F-15J a little
+  lighter than the Strike Eagle. The F-14D is about 5% lighter than the F-14A.
+- **Fly-by-wire 4.5-gen jets** (F-16C, F-2A, Typhoon, Rafale M, Gripen E, Su-35S) get a lighter
+  stick: spring 25–30, damper 16–22 and little friction or inertia. The F-16C uses full travel instead
+  of the official preset's 15%.
+- **Fifth-gen jets** get a low spring and damper (around 20) to imitate fly-by-wire, where the plane
+  isn't fighting back, which makes small corrections easier. The F-22 is the dogfighter, with
+  thrust vectoring, so it gets slightly more spring (22) and rumble (80). The F-35 is more of a
+  bomber, so it gets less (spring 18, rumble 70). The Su-57 (21) and Su-47 (20) sit in between.
+- **Experimental jets** (FA-36, EA-36, X-40) get the lightest stick of all: spring and damper 15,
+  friction and inertia 3, rumble 70, very late stall and light stall buffet.
+- **Rumble (game FFB gain)** is 100 for fighters. Heavier planes get less: about 70 for the A-6E,
+  EA-6B, Su-34 and MiG-31, and 40 for the A-10 and Su-25.
+
+You can change any value in Cockpit while you fly; your edits stay in your own copy of the preset.
+
+### Changes (2026-10-14)
+
+- Per-plane stick feel replaces the old one-size spring of 60–70, which was too stiff to fly.
+- The F-14A and F-14D now have separate presets.
+- Game FFB gain was 0 in every preset, which muted the bridge's rumble; it's now set per plane.
+- The bridge's fallback profile is `FA-18C-AC8`, so it never asks Cockpit for a real DCS profile.
+- The release build now includes `cockpit-presets/` and the install/uninstall scripts.
 
 **Your real DCS profiles stay as they are.** The installer only adds new names to Cockpit's
 auto-match table and never overwrites an existing key, so DCS aircraft such as `FA-18C_hornet` or
