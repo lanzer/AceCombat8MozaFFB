@@ -1,6 +1,19 @@
 # AceCombat8MozaFFB (AceFFB): force feedback for ACE COMBAT 8 on MOZA AB6 / AB9 flight bases
 
-**Version 0.2.1**. Download it from [Releases](https://github.com/lanzer/AceCombat8MozaFFB/releases).
+**Version 0.3.0**. Download it from [Releases](https://github.com/lanzer/AceCombat8MozaFFB/releases).
+
+## Main feature: every plane gets its own stick feel, automatically
+
+When you pick a plane in AC8, its own MOZA Cockpit stick profile loads automatically. The
+32 bundled presets give every AC8 plane its own spring, damper, weight and rumble strength:
+heavy, old-school stick loads on the Phantom and Tomcat, a light fly-by-wire feel on fifth-gen
+fighters, and a soft, twitchy stick on the experimental jets. Fifth-gen fighters are always
+stronger in AC8, so the older jets are easy to ignore. Giving each one its own feel makes them
+worth flying again.
+
+> **Required:** turn on **auto switch presets** in MOZA Cockpit's settings, and install the presets
+> with `scripts\Install-CockpitPresets.ps1` (it backs up your preset library first). See
+> [AC8 Cockpit presets](#ac8-cockpit-presets-ab6).
 
 AceFFB gives ACE COMBAT 8: Wings of Theve (PC/Steam) real force feedback on a **MOZA AB6 or AB9** FFB flight base.
 It was tested on the AB6. The AB9 should work the same way because it uses the same MOZA Cockpit telemetry and
@@ -212,8 +225,9 @@ you pull hard.
 
 You can change any value in Cockpit while you fly; your edits stay in your own copy of the preset.
 
-### Changes (2026-10-14)
+### Changes (2026-10-14, v0.3.0)
 
+- **Headline:** per-plane automatic profile switching. Picking a plane in AC8 loads its own Cockpit preset (needs Cockpit's "auto switch presets" on).
 - Per-plane stick feel replaces the old one-size spring of 60–70, which was too stiff to fly.
 - The F-14A and F-14D now have separate presets.
 - Game FFB gain was 0 in every preset, which muted the bridge's rumble; it's now set per plane.
