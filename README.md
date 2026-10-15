@@ -82,6 +82,12 @@ player aircraft's state from inside the game and turns it into:
    *Expert* flight controls in game, then press **F5**. Turn off any Xbox-controller emulator so the
    game doesn't read the stick twice.
 
+   **Alternative layout:** [examples/AC8HOTAS-bindings-AB6-trigger-missile.lua](examples/AC8HOTAS-bindings-AB6-trigger-missile.lua)
+   is unconventional: missiles fire from the trigger's second stage instead of the big red top button, and
+   target select sits right under the resting thumb. Your thumb never has to move, which keeps your aim much
+   steadier while firing missiles and switching targets. Face buttons are on 12-15, the D-pad and squadron
+   commands on 7-10, and weapon change on 21.
+
 ## MOZA throttle and rudder pedals (untested)
 
 This setup hasn't been tested yet. If you try a MOZA throttle (or any separate throttle) and/or
