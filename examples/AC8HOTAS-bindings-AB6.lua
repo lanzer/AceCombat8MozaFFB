@@ -58,8 +58,8 @@ return {
         Target = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button8" },  -- MOZA AB6
         Radar = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button4" },  -- MOZA AB6
         Flare = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button11" },  -- MOZA AB6
-        View = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button16" },  -- MOZA AB6 camera view cycle (third-person / HUD / cockpit)
-        Gear = nil,
+        View = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button23" },  -- MOZA AB6 camera view cycle (third-person / HUD / cockpit)
+        Gear = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button16" },  -- MOZA AB6 gear down
         
         HatUp = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button12" },  -- MOZA AB6 in-flight hat (squadron commands)
         HatRight = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button13" },  -- MOZA AB6 in-flight hat (squadron commands)
