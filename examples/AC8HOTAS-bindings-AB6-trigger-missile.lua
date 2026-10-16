@@ -1,7 +1,7 @@
 -- Example: AB6 'trigger-missile' layout (Derek's personal setup).
 -- Missile is on the trigger's second stage (Button6) instead of the big red top button, and target select is on Button18,
 -- so your thumb never leaves its natural spot: steadier aim while firing missiles and switching targets.
--- Face buttons 12-15, D-pad and squadron commands on 7-10, weapon change on 21.
+-- Face buttons 12-15, D-pad and squadron commands on 7-10, weapon change on 19, flares on 20 and gear down on 11.
 -- Replace the device GUID with your own (see the detected list at the bottom after pressing F5).
 
 -- AC8HOTAS: edit your bindings, save this file, then press F5 in the game.
@@ -30,12 +30,12 @@ return {
         Gun = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button1" },  -- MOZA AB6
         Missile = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button6" },  -- MOZA AB6
         -- Weapon/Target are single cycle actions in AC8HOTAS (no prev/next): using Button21 and Button18.
-        Weapon = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button21" },  -- MOZA AB6
+        Weapon = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button19" },  -- MOZA AB6
         Target = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button18" },  -- MOZA AB6
         Radar = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button4" },  -- MOZA AB6
-        Flare = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button11" },  -- MOZA AB6
+        Flare = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button20" },  -- MOZA AB6
         View = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button16" },  -- MOZA AB6
-        Gear = nil,
+        Gear = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button11" },  -- MOZA AB6 gear down
         
         HatUp = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button7" },  -- MOZA AB6 in-flight hat (squadron commands)
         HatRight = { device = "{A4E48D70-C29A-11F1-8001-444553540000}", input = "Button8" },  -- MOZA AB6 in-flight hat (squadron commands)

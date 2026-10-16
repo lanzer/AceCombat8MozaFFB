@@ -86,7 +86,7 @@ player aircraft's state from inside the game and turns it into:
    is unconventional: missiles fire from the trigger's second stage instead of the big red top button, and
    target select sits right under the resting thumb. Your thumb never has to move, which keeps your aim much
    steadier while firing missiles and switching targets. Face buttons are on 12-15, the D-pad and squadron
-   commands on 7-10, and weapon change on 21.
+   commands on 7-10, and weapon change on 19, flares on 20 and gear down on 11.
 
 ## MOZA throttle and rudder pedals (untested)
 
