@@ -1,6 +1,6 @@
 # AceCombat8MozaFFB (AceFFB): force feedback for ACE COMBAT 8 on MOZA AB6 / AB9 flight bases
 
-**Version 0.3.0**. Download it from [Releases](https://github.com/lanzer/AceCombat8MozaFFB/releases).
+**Version 0.3.1**. Download it from [Releases](https://github.com/lanzer/AceCombat8MozaFFB/releases).
 
 ## Main feature: every plane gets its own stick feel, automatically
 
@@ -269,6 +269,15 @@ you pull hard.
   EA-6B, Su-34 and MiG-31, and 40 for the A-10 and Su-25.
 
 You can change any value in Cockpit while you fly; your edits stay in your own copy of the preset.
+
+### Changes (2026-10-19, v0.3.1)
+
+- **One-click install:** double-click `Install-AceFFB.cmd` in the release zip. It finds the game, sets up the
+  offline (no-EAC) launch, UE4SS, AceTelemetry, the MOZA Cockpit port and presets, AceBridge and your key
+  bindings, backing up every file first. `Uninstall-AceFFB.cmd` undoes it. See [Quick install](#quick-install-run-install-aceffbcmd).
+- Both AC8HOTAS binding examples now bind gear down. Standard: gear 16, camera view 23. Trigger-missile:
+  gear 11, flares 20, weapon change 19.
+- All scripts now write text files as UTF-8 without a BOM (a BOM stopped AC8HOTAS from loading `bindings.lua`).
 
 ### Changes (2026-10-14, v0.3.0)
 
