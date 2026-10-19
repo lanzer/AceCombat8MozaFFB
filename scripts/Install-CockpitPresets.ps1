@@ -45,7 +45,7 @@ foreach ($f in Get-ChildItem $PresetDir -Filter *.preset) {
   Write-Host "Installed $($p.name)"
 }
 $idx.presets = @($presets)
-$idx | ConvertTo-Json -Depth 10 | Set-Content $idxPath -Encoding UTF8
-$om  | ConvertTo-Json -Depth 10 | Set-Content $omPath -Encoding UTF8
+[IO.File]::WriteAllText($idxPath, ($idx | ConvertTo-Json -Depth 10), (New-Object Text.UTF8Encoding($false)))  # UTF-8 without BOM
+[IO.File]::WriteAllText($omPath, ($om | ConvertTo-Json -Depth 10), (New-Object Text.UTF8Encoding($false)))  # UTF-8 without BOM
 if (Test-Path $exe) { Start-Process $exe }
 Write-Host "Done. To undo, run Uninstall-CockpitPresets.ps1 or restore $backup"

@@ -17,10 +17,10 @@ $ac8 = @($idx.presets | Where-Object { $_.name -like 'AC8 *' })
 $ids = $ac8.uuid
 foreach ($u in $ids) { Remove-Item (Join-Path $lib "$u.preset") -ea 0 }
 $idx.presets = @($idx.presets | Where-Object { $_.name -notlike 'AC8 *' })
-$idx | ConvertTo-Json -Depth 10 | Set-Content $idxPath -Encoding UTF8
+[IO.File]::WriteAllText($idxPath, ($idx | ConvertTo-Json -Depth 10), (New-Object Text.UTF8Encoding($false)))  # UTF-8 without BOM
 $om = Get-Content $omPath -Raw | ConvertFrom-Json
 $map = $om.Base.AB6.dcs_world
 foreach ($k in @($map.PSObject.Properties.Name)) { if ($ids -contains $map.$k) { $map.PSObject.Properties.Remove($k) } }
-$om | ConvertTo-Json -Depth 10 | Set-Content $omPath -Encoding UTF8
+[IO.File]::WriteAllText($omPath, ($om | ConvertTo-Json -Depth 10), (New-Object Text.UTF8Encoding($false)))  # UTF-8 without BOM
 if (Test-Path $exe) { Start-Process $exe }
 Write-Host "Removed $($ac8.Count) AC8 presets."

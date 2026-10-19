@@ -23,7 +23,11 @@ Copy-Item -Recurse (Join-Path $root "dcs") (Join-Path $out "dcs")
 Copy-Item (Join-Path $root "scripts\Start-AceBridge.cmd") $out
 Copy-Item -Recurse (Join-Path $root "cockpit-presets") (Join-Path $out "cockpit-presets")
 New-Item -ItemType Directory -Force (Join-Path $out "scripts") | Out-Null
-Copy-Item (Join-Path $root "scripts\Install-CockpitPresets.ps1"), (Join-Path $root "scripts\Uninstall-CockpitPresets.ps1") (Join-Path $out "scripts")
+foreach ($f in "Install-CockpitPresets.ps1", "Uninstall-CockpitPresets.ps1", "Install-AceFFB.ps1", "Uninstall-AceFFB.ps1", "AceFFB-Common.ps1") {
+  Copy-Item (Join-Path $root "scripts\$f") (Join-Path $out "scripts")
+}
+# Double-click installers at the zip root
+Copy-Item (Join-Path $root "Install-AceFFB.cmd"), (Join-Path $root "Uninstall-AceFFB.cmd") $out
 Copy-Item (Join-Path $root "README.md"), (Join-Path $root "LICENSE") $out
 
 $zip = Join-Path $root "release\$name.zip"

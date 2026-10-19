@@ -51,9 +51,47 @@ player aircraft's state from inside the game and turns it into:
 
 ## Install
 
+### Quick install: run `Install-AceFFB.cmd`
+
+Extract the release zip anywhere, close the game, then double-click **`Install-AceFFB.cmd`**. It asks
+for administrator rights if the game folder needs them, walks you through each step, and ends
+with a summary of what's done and what's left (`[OK]`, `[SKIP]`, `[ACTION NEEDED]`):
+
+1. **Finds ACE COMBAT 8** in your Steam libraries (or lets you pick the folder).
+2. **Offline launch without anti-cheat:** after you type `YES`, it puts `steam_appid.txt` (the game id
+   `2288340`) next to `AceCombat8.exe` and adds an **"ACE COMBAT 8 (offline, no EAC)"** desktop shortcut
+   (`AceCombat8.exe -SaveToUserDir`). Offline campaign only, see the warning above.
+3. **UE4SS:** uses yours if it's installed. If not, it can download the tested build (UE4SS v3.0.1 Beta
+   03dbd5c0, from the AC8HOTAS full-install package on GitHub, checked by SHA-256), which also brings
+   AC8HOTAS and AC8AnalogYaw.
+4. **AceTelemetry:** copies the mod into `UE4SS\Mods` and enables it in `mods.txt` (and `mods.json`).
+5. **MOZA Cockpit:** sets the DCS export port in `MOZA.lua` to 3476, optionally installs the AC8 per-plane
+   presets, and checks that **auto switch presets** is on.
+6. **AceBridge:** copies it to `%USERPROFILE%\AceFFB` (you can change it), adds a desktop shortcut and
+   checks for the .NET 8 Desktop Runtime.
+7. **Key bindings (AC8HOTAS):** lets you pick the standard or the trigger-missile layout and fills in your
+   MOZA base's device ID. The controller list only appears after the game has run once with AC8HOTAS, so on
+   a fresh install, start the game once, quit, and run the installer again.
+
+Every file is backed up before it's changed (to `%LOCALAPPDATA%\AceFFB\backups`), and it's safe to rerun.
+Finished steps are skipped. **`Uninstall-AceFFB.cmd`** undoes it: it removes the mod, `steam_appid.txt`,
+AceBridge and the shortcuts, restores the port and your old bindings, and removes UE4SS if the installer
+added it. Run it before you play online. To preview without changing anything, run
+`Install-AceFFB.cmd -DryRun` (or `Uninstall-AceFFB.cmd -DryRun`) from a command prompt.
+
+The downloaded package contains AC8HOTAS 0.1.1. Newer AC8HOTAS versions are on
+[Nexus Mods](https://www.nexusmods.com/acecombat8wingsoftheve/mods/8). To update, replace its
+`Scripts` folder and keep your `bindings.lua`.
+
+### Manual install
+
+0. **Offline launch without EAC.** Create `ACE COMBAT 8\Game\Binaries\Win64\steam_appid.txt` containing
+   just `2288340` (the game's Steam app id), then start the game by running
+   `Game\Binaries\Win64\AceCombat8.exe -SaveToUserDir` (for example from a shortcut) instead of Play in
+   Steam. `-SaveToUserDir` is what Steam's own launch entry uses, so your saves stay in the same place.
 1. **UE4SS.** Install UE4SS v3.0.1 Beta into `ACE COMBAT 8\Game\Binaries\Win64` so you have
    `Win64\dwmapi.dll` and `Win64\UE4SS\`. The easiest route is the AC8HOTAS full-install package.
-   Set up the EAC-disabled launch as described by AC8HOTAS / the AC8 modding community.
+   Without step 0, UE4SS can't load.
 2. **AceTelemetry mod.** Copy `mod\AceTelemetry` (or `Mods\AceTelemetry` from the release zip) to
    `ACE COMBAT 8\Game\Binaries\Win64\UE4SS\Mods\AceTelemetry`, then add this line to
    `UE4SS\Mods\mods.txt`:
@@ -72,7 +110,7 @@ player aircraft's state from inside the game and turns it into:
    It includes Start/Menu (the mod's `Pause` action, Button49), air brake / speed control (`AccelDecel`,
    Button3), level flight / auto-level (`AutoPilot`, Button52), squadron commands on the in-flight hat
    (`HatUp/Right/Down/Left`, Buttons 12-15, with the same buttons also bound to `DPad*` for menus and dialogs), camera view cycle third-person / HUD / cockpit
-   (`View`, Button16), camera look on the grip thumbstick
+   (`View`, Button23), gear down (`Gear`, Button16), camera look on the grip thumbstick
    (`CameraYaw` = Rx, `CameraPitch` = Ry with `invert = true`, which makes view up/down follow the
    flight stick, push forward = look down; set it to `false` for a non-inverted view) and, for setups without a separate throttle,
    `Throttle` on the AB6 base slider (`Slider2`). **Comment out the Throttle line if the game already
@@ -87,6 +125,7 @@ player aircraft's state from inside the game and turns it into:
    target select sits right under the resting thumb. Your thumb never has to move, which keeps your aim much
    steadier while firing missiles and switching targets. Face buttons are on 12-15, the D-pad and squadron
    commands on 7-10, and weapon change on 19, flares on 20 and gear down on 11.
+
 
 ## MOZA throttle and rudder pedals (untested)
 
