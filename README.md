@@ -1,13 +1,13 @@
 # AceCombat8MozaFFB (AceFFB): force feedback for ACE COMBAT 8 on MOZA AB6 / AB9 flight bases
 
-**Version 0.3.1**. Download it from [Releases](https://github.com/lanzer/AceCombat8MozaFFB/releases).
+**Version 0.3.2**. Download it from [Releases](https://github.com/lanzer/AceCombat8MozaFFB/releases).
 
 ## Main feature: every plane gets its own stick feel, automatically
 
 When you pick a plane in AC8, its own MOZA Cockpit stick profile loads automatically. The
 32 bundled presets give every AC8 plane its own spring, damper, weight and rumble strength:
 heavy, old-school stick loads on the Phantom and Tomcat, a light fly-by-wire feel on fifth-gen
-fighters, and a soft, twitchy stick on the experimental jets. Fifth-gen fighters are always
+fighters, and the lightest (but still real) stick on the experimental jets. Fifth-gen fighters are always
 stronger in AC8, so the older jets are easy to ignore. Giving each one its own feel makes them
 worth flying again.
 
@@ -240,7 +240,8 @@ presets never switch in.
 
 Each preset's **game FFB gain** (`bacic_gameForceFeedback`) sets how strong AceBridge's own rumble is
 (gun, hits, clouds, icing, sonic boom, stall). It must be above 0, or the rumble is muted. The presets
-use 100 for fighters, 70–80 for heavy jets, fifth-gen and experimental planes, and 40 for attack jets.
+use 100 for fighters (including the F-35 and Su-47), 70–80 for heavy jets, the F-22, Su-57 and experimental
+planes, and 40 for attack jets.
 
 ### How the presets are tuned
 
@@ -259,16 +260,27 @@ you pull hard.
 - **Fly-by-wire 4.5-gen jets** (F-16C, F-2A, Typhoon, Rafale M, Gripen E, Su-35S) get a lighter
   stick: spring 25–30, damper 16–22 and little friction or inertia. The F-16C uses full travel instead
   of the official preset's 15%.
-- **Fifth-gen jets** get a low spring and damper (around 20) to imitate fly-by-wire, where the plane
-  isn't fighting back, which makes small corrections easier. The F-22 is the dogfighter, with
-  thrust vectoring, so it gets slightly more spring (22) and rumble (80). The F-35 is more of a
-  bomber, so it gets less (spring 18, rumble 70). The Su-57 (21) and Su-47 (20) sit in between.
-- **Experimental jets** (FA-36, EA-36, X-40) get the lightest stick of all: spring and damper 15,
-  friction and inertia 3, rumble 70, very late stall and light stall buffet.
+- **Fifth-gen jets** get a lighter fly-by-wire stick, but not so light that it feels like a
+  non-FFB stick. The F-35 and Su-47 use the Rafale M settings (spring 25, damper 18, friction and
+  inertia 8, rumble 100). The F-22 and Su-57 share the F-22 settings (spring and damper 22,
+  friction and inertia 5, rumble 80), the F-22 being the thrust-vectoring dogfighter.
+- **Experimental jets** (FA-36, EA-36, X-40) get the lightest stick: spring and damper 20,
+  friction and inertia 6, rumble 75, with a late stall (45°).
 - **Rumble (game FFB gain)** is 100 for fighters. Heavier planes get less: about 70 for the A-6E,
   EA-6B, Su-34 and MiG-31, and 40 for the A-10 and Su-25.
 
 You can change any value in Cockpit while you fly; your edits stay in your own copy of the preset.
+
+### Changes (2026-11-16, v0.3.2)
+
+- Stiffer fifth-gen and experimental presets. The old ones were so light they felt close to a non-FFB stick.
+  Each plane takes the full settings (spring, damper, friction, inertia, rumble, stall and buffet) of a
+  heavier preset:
+  - F-35A and Su-47: now the Rafale M settings (spring 25, was 18 and 20).
+  - Su-57: now the F-22A settings (spring 22, was 21). The F-22A itself is unchanged.
+  - FA-36, EA-36 and X-40: now the old Su-47 settings (spring 20, was 15).
+- To update, run `scripts\Install-CockpitPresets.ps1` again (or `Install-AceFFB.cmd`). It backs up your
+  preset library first and overwrites the AC8 presets, including any edits you made to them in Cockpit.
 
 ### Changes (2026-10-19, v0.3.1)
 
